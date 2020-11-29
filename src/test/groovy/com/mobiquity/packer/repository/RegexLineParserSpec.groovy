@@ -22,6 +22,8 @@ class RegexLineParserSpec extends Specification {
         "76"            || ParseException
         "76:(1,12,6)"   || ParseException // No money sign
         "76:(1.1,12,6)" || ParseException // index is decimal
+        "76:(1,0,€6)" || ParseException // Weight 0
+        "76:(1,-11,€6)" || ParseException // Weight minus
     }
 
     def "Simple with one entry: 81 : (1,53.38,€45)"() {

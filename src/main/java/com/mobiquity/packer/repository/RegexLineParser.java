@@ -55,25 +55,27 @@ public class RegexLineParser implements LineParser {
     private Item createItem(String indexStr, String weightStr, String costStr, String line) throws ParseException {
         Integer index;
         try {
-            index = Integer.valueOf(indexStr);
+            index = Integer.valueOf(indexStr.trim());
         } catch (Exception e) {
             throw new ParseException("Can't parse index " + indexStr + " on line " + line);
         }
 
         BigDecimal weight;
         try {
-            weight = new BigDecimal(weightStr);
+            weight = new BigDecimal(weightStr.trim());
+            if (weight.compareTo(BigDecimal.ZERO) < 1) throw new ParseException("Weight should be greater than 0");
         } catch (Exception e) {
             throw new ParseException("Can't parse weight " + weightStr + " on line " + line);
         }
 
         BigDecimal cost;
         try {
-            cost = new BigDecimal(costStr);
+            cost = new BigDecimal(costStr.trim());
         } catch (Exception e) {
             throw new ParseException("Can't parse cost " + costStr + " on line " + line);
         }
 
         return new Item(index, weight, cost);
     }
+
 }
