@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'groovy'
+}
+
+group 'com.mobiquity'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = JavaVersion.VERSION_11
+
+repositories {
+    mavenCentral()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifactId = 'implementation'
+            from components.java
+        }
+    }
+}
+
+dependencies {
+
+    testCompile 'org.spockframework:spock-core:1.3-groovy-2.5'
+    testCompile 'org.codehaus.groovy:groovy-all:2.5.12'
+
+}
