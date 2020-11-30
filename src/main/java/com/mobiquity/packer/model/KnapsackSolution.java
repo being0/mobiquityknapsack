@@ -10,24 +10,24 @@ import java.util.Set;
 public class KnapsackSolution {
 
     private final Set<Item> items;
-    private final BigDecimal capacity;
-    private final BigDecimal price;
+    private final BigDecimal weight;
+    private final BigDecimal value;
 
-    public KnapsackSolution(Set<Item> items, BigDecimal capacity, BigDecimal price) {
+    public KnapsackSolution(Set<Item> items, BigDecimal weight, BigDecimal value) {
         this.items = items;
-        this.capacity = capacity;
-        this.price = price;
+        this.weight = weight;
+        this.value = value;
     }
 
     public Set<Item> getItems() {
         return items;
     }
 
-    public BigDecimal getCapacity() {
-        return capacity;
+    public BigDecimal getWeight() {
+        return weight;
     }
 
-    public BigDecimal getPrice() {
-        return price;
+    public BigDecimal getValue() {
+        return value;
     }
 }

@@ -37,15 +37,15 @@ class RegexLineParserSpec extends Specification {
         knapsackProblem.items.get(0).cost == new BigDecimal("45")
     }
 
-    def "Test large decimals"() {
+    def "Test decimals with high precisions"() {
         when:
-        KnapsackProblem knapsackProblem = regexLineParser.parse("811311231321231232131232.123131232132338719379 : (1,5313131312323123.21312312312321312321,€45123123213.123123123123123)")
+        KnapsackProblem knapsackProblem = regexLineParser.parse("100.123131232132338719379 : (1,90.21312312312321312321,€89.123123123123123)")
         then:
-        knapsackProblem.maxWeight == new BigDecimal("811311231321231232131232.123131232132338719379")
+        knapsackProblem.maxWeight == new BigDecimal("100.123131232132338719379")
         knapsackProblem.items.size() == 1
         knapsackProblem.items.get(0).index == Integer.valueOf(1)
-        knapsackProblem.items.get(0).weight == new BigDecimal("5313131312323123.21312312312321312321")
-        knapsackProblem.items.get(0).cost == new BigDecimal("45123123213.123123123123123")
+        knapsackProblem.items.get(0).weight == new BigDecimal("90.21312312312321312321")
+        knapsackProblem.items.get(0).cost == new BigDecimal("89.123123123123123")
     }
 
     def "Test 3 items"() {

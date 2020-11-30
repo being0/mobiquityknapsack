@@ -28,9 +28,7 @@ public class Packer {
         LineParser parser = new RegexLineParser();
         KnapsackProblemRepository repository = new KnapsackProblemFileRepository(filePath, parser);
         // Config packer logic
-        PackerLogic packerLogic = new DefaultPackerLogic(repository, new BackTrackingKnapsackSolver(),
-                new PackerConstraints(new BigDecimal("100"), 15,
-                        new BigDecimal("100"), new BigDecimal("100")));
+        PackerLogic packerLogic = new DefaultPackerLogic(repository, new BackTrackingKnapsackSolver(), PackerConstraints.getDefaults());
 
         // Run packer logic to solve all problems
         List<KnapsackSolution> solutions = packerLogic.solveAll();

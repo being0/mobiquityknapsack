@@ -46,22 +46,22 @@ public class DefaultPackerLogic implements PackerLogic {
         // It is not obvious from the spec that what should happen in case of constrain fails, so here I raise exception
 
         if (packerConstraints.getMaxWeightConstraint().compareTo(problem.getMaxWeight()) < 0) {
-            throw new ConstraintException("Max weight can not be greater than "
+            throw new MaxWeightException("Max weight can not be greater than "
                     + packerConstraints.getMaxWeightConstraint() + ", it is " + problem.getMaxWeight());
         }
 
         if (packerConstraints.getMaxNumberOfItemsConstraint().compareTo(problem.getItems().size()) < 0) {
-            throw new ConstraintException("Max number of items can not be greater than "
+            throw new MaxNumberOfItemsException("Max number of items can not be greater than "
                     + packerConstraints.getMaxNumberOfItemsConstraint() + ", it is " + problem.getItems().size());
         }
 
         for (Item item : problem.getItems()) {
             if (packerConstraints.getMaxItemCostConstraint().compareTo(item.getCost()) < 0) {
-                throw new ConstraintException("Max item cost can not be greater than  "
+                throw new MaxItemCostException("Max item cost can not be greater than  "
                         + packerConstraints.getMaxItemCostConstraint() + ", it is " + item.getCost());
             }
             if (packerConstraints.getMaxItemWeightConstraint().compareTo(item.getWeight()) < 0) {
-                throw new ConstraintException("Max item weight can not be greater than  "
+                throw new MaxItemWeightException("Max item weight can not be greater than  "
                         + packerConstraints.getMaxItemWeightConstraint() + ", it is " + item.getWeight());
             }
         }

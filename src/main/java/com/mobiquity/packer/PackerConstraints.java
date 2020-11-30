@@ -13,12 +13,19 @@ class PackerConstraints {
     private final BigDecimal maxItemCostConstraint;
     private final BigDecimal maxItemWeightConstraint;
 
+    private static final PackerConstraints defaults = new PackerConstraints(new BigDecimal("100"), 15,
+            new BigDecimal("100"), new BigDecimal("100"));
+
     PackerConstraints(BigDecimal maxWeightConstraint, Integer maxNumberOfItemsConstraint,
                       BigDecimal maxItemCostConstraint, BigDecimal maxItemWeightConstraint) {
         this.maxWeightConstraint = maxWeightConstraint;
         this.maxNumberOfItemsConstraint = maxNumberOfItemsConstraint;
         this.maxItemCostConstraint = maxItemCostConstraint;
         this.maxItemWeightConstraint = maxItemWeightConstraint;
+    }
+
+    public static PackerConstraints getDefaults() {
+        return defaults;
     }
 
     BigDecimal getMaxWeightConstraint() {
