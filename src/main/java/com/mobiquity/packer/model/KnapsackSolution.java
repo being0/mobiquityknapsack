@@ -1,7 +1,7 @@
 package com.mobiquity.packer.model;
 
 import java.math.BigDecimal;
-import java.util.Set;
+import java.util.List;
 
 /**
  * @author <a href="mailto:raliakbari@gmail.com">Reza Aliakbari</a>
@@ -9,17 +9,17 @@ import java.util.Set;
  */
 public class KnapsackSolution {
 
-    private final Set<Item> items;
+    private final List<Item> items;
     private final BigDecimal weight;
     private final BigDecimal value;
 
-    public KnapsackSolution(Set<Item> items, BigDecimal weight, BigDecimal value) {
+    public KnapsackSolution(List<Item> items, BigDecimal weight, BigDecimal value) {
         this.items = items;
         this.weight = weight;
         this.value = value;
     }
 
-    public Set<Item> getItems() {
+    public List<Item> getItems() {
         return items;
     }
 
@@ -30,4 +30,5 @@ public class KnapsackSolution {
     public BigDecimal getValue() {
         return value;
     }
+
 }

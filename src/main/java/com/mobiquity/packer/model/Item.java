@@ -9,16 +9,28 @@ import java.math.RoundingMode;
  */
 public class Item {
 
+    /**
+     * Index stating from 1
+     */
     private final Integer index;
+    /**
+     * Weight of item
+     */
     private final BigDecimal weight;
+    /**
+     * Value of item
+     */
     private final BigDecimal value;
-    private final BigDecimal valuePerWeight;
+    /**
+     * Ration of value/weight is used for solving problem
+     */
+    private final BigDecimal ratio;
 
     public Item(Integer index, BigDecimal weight, BigDecimal value) {
         this.index = index;
         this.weight = weight;
         this.value = value;
-        this.valuePerWeight = value.divide(weight, 10, RoundingMode.HALF_UP);
+        this.ratio = value.divide(weight, 10, RoundingMode.HALF_UP);
     }
 
     public Integer getIndex() {
@@ -33,7 +45,8 @@ public class Item {
         return value;
     }
 
-    public BigDecimal getValuePerWeight() {
-        return valuePerWeight;
+    public BigDecimal getRatio() {
+        return ratio;
     }
+
 }
