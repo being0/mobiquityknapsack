@@ -34,7 +34,7 @@ class RegexLineParserSpec extends Specification {
         knapsackProblem.items.size() == 1
         knapsackProblem.items.get(0).index == Integer.valueOf(1)
         knapsackProblem.items.get(0).weight == new BigDecimal("53.38")
-        knapsackProblem.items.get(0).cost == new BigDecimal("45")
+        knapsackProblem.items.get(0).value == new BigDecimal("45")
     }
 
     def "Test decimals with high precisions"() {
@@ -45,7 +45,7 @@ class RegexLineParserSpec extends Specification {
         knapsackProblem.items.size() == 1
         knapsackProblem.items.get(0).index == Integer.valueOf(1)
         knapsackProblem.items.get(0).weight == new BigDecimal("90.21312312312321312321")
-        knapsackProblem.items.get(0).cost == new BigDecimal("89.123123123123123")
+        knapsackProblem.items.get(0).value == new BigDecimal("89.123123123123123")
     }
 
     def "Test 3 items"() {
@@ -56,15 +56,15 @@ class RegexLineParserSpec extends Specification {
         knapsackProblem.items.size() == 3
         knapsackProblem.items.get(0).index == Integer.valueOf(1)
         knapsackProblem.items.get(0).weight == new BigDecimal("4")
-        knapsackProblem.items.get(0).cost == new BigDecimal("34")
+        knapsackProblem.items.get(0).value == new BigDecimal("34")
 
         knapsackProblem.items.get(1).index == Integer.valueOf(2)
         knapsackProblem.items.get(1).weight == new BigDecimal("9")
-        knapsackProblem.items.get(1).cost == new BigDecimal("55")
+        knapsackProblem.items.get(1).value == new BigDecimal("55")
 
         knapsackProblem.items.get(2).index == Integer.valueOf(3)
         knapsackProblem.items.get(2).weight == new BigDecimal("88")
-        knapsackProblem.items.get(2).cost == new BigDecimal("9")
+        knapsackProblem.items.get(2).value == new BigDecimal("9")
     }
 
 }

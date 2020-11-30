@@ -56,9 +56,9 @@ public class DefaultPackerLogic implements PackerLogic {
         }
 
         for (Item item : problem.getItems()) {
-            if (packerConstraints.getMaxItemCostConstraint().compareTo(item.getCost()) < 0) {
+            if (packerConstraints.getMaxItemCostConstraint().compareTo(item.getValue()) < 0) {
                 throw new MaxItemCostException("Max item cost can not be greater than  "
-                        + packerConstraints.getMaxItemCostConstraint() + ", it is " + item.getCost());
+                        + packerConstraints.getMaxItemCostConstraint() + ", it is " + item.getValue());
             }
             if (packerConstraints.getMaxItemWeightConstraint().compareTo(item.getWeight()) < 0) {
                 throw new MaxItemWeightException("Max item weight can not be greater than  "
