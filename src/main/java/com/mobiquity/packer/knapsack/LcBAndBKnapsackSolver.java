@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * @author <a href="mailto:raliakbari@gmail.com">Reza Aliakbari</a>
  * @version 1, 11/29/2020
  */
-public class LcBranchAndBoundKnapsackSolver implements KnapsackSolver {
+public class LcBAndBKnapsackSolver implements KnapsackSolver {
 
     class Node {
         // Upper Bound: Best case
@@ -74,6 +74,8 @@ public class LcBranchAndBoundKnapsackSolver implements KnapsackSolver {
 
     @Override
     public KnapsackSolution solve(KnapsackProblem knapsackProblem) {
+        if (knapsackProblem == null || knapsackProblem.getItems() == null) return NO_SOLUTION;
+
         Item[] items = knapsackProblem.getItems().toArray(new Item[0]);
         int size = items.length;
         BigDecimal capacity = knapsackProblem.getMaxWeight();
@@ -272,8 +274,8 @@ public class LcBranchAndBoundKnapsackSolver implements KnapsackSolver {
         items.add(new Item(9, new BigDecimal("6.76"), new BigDecimal("64")));
 
 
-        KnapsackSolution solution = new LcBranchAndBoundKnapsackSolver().solve(new KnapsackProblem(capacity, items));
-        System.out.println(solution.getItems().stream().map(i -> i.getIndex()).collect(Collectors.toList()));
+        KnapsackSolution solution = new LcBAndBKnapsackSolver().solve(new KnapsackProblem(capacity, items));
+        System.out.println(solution.getItems().stream().map(Item::getIndex).collect(Collectors.toList()));
         System.out.println(solution.getValue());
         System.out.println(solution.getWeight());
 

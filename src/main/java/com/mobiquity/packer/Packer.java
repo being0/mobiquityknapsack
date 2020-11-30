@@ -1,7 +1,7 @@
 package com.mobiquity.packer;
 
 import com.mobiquity.exception.APIException;
-import com.mobiquity.packer.knapsack.LcBranchAndBoundKnapsackSolver;
+import com.mobiquity.packer.knapsack.LcBAndBKnapsackSolver;
 import com.mobiquity.packer.model.KnapsackSolution;
 import com.mobiquity.packer.repository.KnapsackProblemFileRepository;
 import com.mobiquity.packer.repository.KnapsackProblemRepository;
@@ -36,7 +36,7 @@ public class Packer {
         LineParser parser = new RegexLineParser();
         KnapsackProblemRepository repository = new KnapsackProblemFileRepository(filePath, parser);
         // Config packer logic
-        return new DefaultPackerLogic(repository, new LcBranchAndBoundKnapsackSolver(), PackerConstraints.getDefaults());
+        return new DefaultPackerLogic(repository, new LcBAndBKnapsackSolver(), PackerConstraints.getDefaults());
     }
 
     private static String convertSolutionToString(List<KnapsackSolution> solutions) {
