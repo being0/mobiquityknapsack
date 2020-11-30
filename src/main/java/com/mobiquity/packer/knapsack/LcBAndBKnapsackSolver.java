@@ -16,7 +16,7 @@ import java.util.*;
  */
 public class LcBAndBKnapsackSolver implements KnapsackSolver {
 
-    class Node {
+    static class Node {
         // Upper Bound: Best case
         // (Fractional Knapsack)
         BigDecimal ub;
@@ -42,10 +42,10 @@ public class LcBAndBKnapsackSolver implements KnapsackSolver {
         // the weights of included items
         BigDecimal tw;
 
-        public Node() {
+        private Node() {
         }
 
-        public Node(Node cpy) {
+        private Node(Node cpy) {
             this.tv = cpy.tv;
             this.tw = cpy.tw;
             this.ub = cpy.ub;
@@ -57,13 +57,13 @@ public class LcBAndBKnapsackSolver implements KnapsackSolver {
     }
 
     // Comparator to sort based on lower bound
-    class sortByLb implements Comparator<Node> {
+    static class sortByLb implements Comparator<Node> {
         public int compare(Node a, Node b) {
             return a.lb.compareTo(b.lb) >= 1 ? 1 : -1;
         }
     }
 
-    class sortByRatio implements Comparator<Item> {
+    static class sortByRatio implements Comparator<Item> {
         public int compare(Item a, Item b) {
             return b.getRatio().compareTo(a.getRatio()) >= 1 ? 1 : -1;
         }
