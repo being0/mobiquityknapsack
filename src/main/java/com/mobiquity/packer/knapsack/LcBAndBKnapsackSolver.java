@@ -7,7 +7,6 @@ import com.mobiquity.packer.model.KnapsackSolution;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * Solve knapsack using Least Cost Branch and Bound algorithm.
@@ -257,28 +256,6 @@ public class LcBAndBKnapsackSolver implements KnapsackSolver {
         a.selected = selected;
         a.tv = tv;
         a.tw = tw;
-    }
-
-    public static void main(String[] args) {
-        int size = 9;
-        BigDecimal capacity = new BigDecimal("56");
-        ArrayList items = new ArrayList(size);
-        items.add(new Item(1, new BigDecimal("90.72"), new BigDecimal("13")));
-        items.add(new Item(2, new BigDecimal("33.80"), new BigDecimal("40")));
-        items.add(new Item(3, new BigDecimal("43.15"), new BigDecimal("10")));
-        items.add(new Item(4, new BigDecimal("37.97"), new BigDecimal("16")));
-        items.add(new Item(5, new BigDecimal("46.81"), new BigDecimal("36")));
-        items.add(new Item(6, new BigDecimal("48.77"), new BigDecimal("79")));
-        items.add(new Item(7, new BigDecimal("81.80"), new BigDecimal("45")));
-        items.add(new Item(8, new BigDecimal("19.36"), new BigDecimal("79")));
-        items.add(new Item(9, new BigDecimal("6.76"), new BigDecimal("64")));
-
-
-        KnapsackSolution solution = new LcBAndBKnapsackSolver().solve(new KnapsackProblem(capacity, items));
-        System.out.println(solution.getItems().stream().map(Item::getIndex).collect(Collectors.toList()));
-        System.out.println(solution.getValue());
-        System.out.println(solution.getWeight());
-
     }
 
 }
