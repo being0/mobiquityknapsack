@@ -14,5 +14,5 @@ public interface KnapsackProblemRepository {
      * Reads all knapsack problems from data repository.
      * @return list of knapsack problems
      */
-    List<KnapsackProblem> readAll() throws ParseException;
+    List<KnapsackProblem> readAll();
 }

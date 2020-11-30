@@ -6,8 +6,8 @@ import spock.lang.Specification
 
 class KnapsackProblemFileRepositorySpec extends Specification {
 
-    KnapsackProblemFileRepository repository;
-    LineParser lineParser;
+    KnapsackProblemFileRepository repository
+    LineParser lineParser
 
     def setup() {
         lineParser = Stub(LineParser)
@@ -23,13 +23,13 @@ class KnapsackProblemFileRepositorySpec extends Specification {
         items.size() == 0
     }
 
-    def 'ParseException when file is not there'() {
+    def 'RepositoryException when file is not there'() {
         given:
         repository = new KnapsackProblemFileRepository("/notExistsPath", lineParser)
         when:
         repository.readAll()
         then:
-        thrown(ParseException)
+        thrown(RepositoryException)
     }
 
     def 'File with 3 items'() {

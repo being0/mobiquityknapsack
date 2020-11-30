@@ -1,5 +1,6 @@
 package com.mobiquity.packer.repository;
 
+import com.mobiquity.exception.APIException;
 import com.mobiquity.packer.model.KnapsackProblem;
 
 import java.io.IOException;
@@ -48,7 +49,7 @@ public class KnapsackProblemFileRepository implements KnapsackProblemRepository 
      * @return list of knapsack problems
      */
     @Override
-    public List<KnapsackProblem> readAll() throws ParseException {
+    public List<KnapsackProblem> readAll() {
 
         ArrayList<KnapsackProblem> knapsackProblems = new ArrayList<>();
 
@@ -57,7 +58,7 @@ public class KnapsackProblemFileRepository implements KnapsackProblemRepository 
             stream.forEach(l -> knapsackProblems.add(lineParser.parse(l)));
 
         } catch (IOException ioe) {
-            throw new ParseException("Can't read from the file! Make sure file exists. File path is " + filePath, ioe);
+            throw new RepositoryException("Can't read from the file! Make sure file exists. File path is " + filePath, ioe);
         }
 
         return knapsackProblems;
