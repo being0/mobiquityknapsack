@@ -1,7 +1,8 @@
 package com.mobiquity.packer.repository;
 
-import com.mobiquity.exception.APIException;
 import com.mobiquity.packer.model.KnapsackProblem;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.LineIterator;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -9,6 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 /**
@@ -20,12 +22,8 @@ import java.util.stream.Stream;
  * 81 : (1,53.38,€45) (2,88.62,€98) (3,78.48,€3) (4,72.30,€76) (5,30.18,€9)
  * (6,46.34,€48)
  * 8 : (1,15.3,€34)
- * 75 : (1,85.31,€29) (2,14.55,€74) (3,3.98,€16) (4,26.24,€55) (5,63.69,€52)
- * (6,76.25,€75) (7,60.02,€74) (8,93.18,€35) (9,89.95,€78)
- * 56 : (1,90.72,€13) (2,33.80,€40) (3,43.15,€10) (4,37.97,€16) (5,46.81,€36)
- * (6,48.77,€79) (7,81.80,€45) (8,19.36,€79) (9,6.76,€64)
- * <p>
- * Caution: This solution should not be used for very large files.
+ *
+ * Caution: For large files use executeOnAllEntries method
  *
  * @author <a href="mailto:raliakbari@gmail.com">Reza Aliakbari</a>
  * @version 1, 11/29/2020
@@ -64,5 +62,22 @@ public class KnapsackProblemFileRepository implements KnapsackProblemRepository 
         return knapsackProblems;
     }
 
+    /**
+     * Executes a consumer on repository. Works for large files.
+     *
+     * @param consumer consumer that receives a KnapsackProblem
+     */
+    @Override
+    public void executeOnAllEntries(Consumer<KnapsackProblem> consumer) {
 
+        try (LineIterator it = FileUtils.lineIterator(Paths.get(filePath).toFile(), "UTF-8")) {
+
+            while (it.hasNext()) {
+                consumer.accept(lineParser.parse(it.nextLine()));
+            }
+
+        } catch (IOException ioe) {
+            throw new RepositoryException("Can't read from the file! Make sure file exists. File path is " + filePath, ioe);
+        }
+    }
 }

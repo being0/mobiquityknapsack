@@ -19,7 +19,6 @@ public class DefaultPackerLogic implements PackerLogic {
     private final KnapsackSolver knapsackSolver;
     private final PackerConstraints packerConstraints;
 
-
     public DefaultPackerLogic(KnapsackProblemRepository knapsackProblemRepository, KnapsackSolver knapsackSolver,
                               PackerConstraints packerConstraints) {
         this.knapsackProblemRepository = knapsackProblemRepository;
@@ -30,19 +29,18 @@ public class DefaultPackerLogic implements PackerLogic {
     @Override
     public List<KnapsackSolution> solveAll() {
 
-        List<KnapsackProblem> problems = knapsackProblemRepository.readAll();
         List<KnapsackSolution> solutions = new ArrayList<>();
 
-        for (KnapsackProblem problem : problems) {
+        knapsackProblemRepository.executeOnAllEntries(problem -> {
             // Check business constrains here before solving the problem
             checkConstrains(problem);
             solutions.add(knapsackSolver.solve(problem));
-        }
+        });
 
         return solutions;
     }
 
-    private void checkConstrains(KnapsackProblem problem) {
+    private KnapsackProblem checkConstrains(KnapsackProblem problem) {
         // It is not obvious from the spec that what should happen in case of constrain fails, so here I raise exception
 
         if (packerConstraints.getMaxWeightConstraint().compareTo(problem.getMaxWeight()) < 0) {
@@ -66,6 +64,7 @@ public class DefaultPackerLogic implements PackerLogic {
             }
         }
 
+        return problem;
 
     }
 

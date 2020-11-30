@@ -23,9 +23,10 @@ publishing {
 }
 
 dependencies {
+    compile 'commons-io:commons-io:2.8.0'
 
     testCompile 'org.spockframework:spock-core:1.3-groovy-2.5'
-    testCompile 'org.codehaus.groovy:groovy-all:2.5.12'
+    testCompile 'org.codehaus.groovy:groovy-all:2.5.13'
     testCompile 'net.bytebuddy:byte-buddy:1.10.18'
     testCompile 'org.objenesis:objenesis:3.1'
 

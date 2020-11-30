@@ -19,7 +19,7 @@ class PackerIntegrationTest extends Specification {
         "" == solutions
     }
 
-    def 'Input with empty line'() {
+    def 'Input with empty line throws APIException'() {
         when:
         Packer.pack(getClass().getResource('/input_with_empty_line').getPath())
         then:
