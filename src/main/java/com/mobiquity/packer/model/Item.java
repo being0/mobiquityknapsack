@@ -11,14 +11,14 @@ public class Item {
 
     private final Integer index;
     private final BigDecimal weight;
-    private final BigDecimal cost;
-    private final BigDecimal costPerWeight;
+    private final BigDecimal value;
+    private final BigDecimal valuePerWeight;
 
-    public Item(Integer index, BigDecimal weight, BigDecimal cost) {
+    public Item(Integer index, BigDecimal weight, BigDecimal value) {
         this.index = index;
         this.weight = weight;
-        this.cost = cost;
-        this.costPerWeight = cost.divide(weight, 10, RoundingMode.HALF_UP);
+        this.value = value;
+        this.valuePerWeight = value.divide(weight, 10, RoundingMode.HALF_UP);
     }
 
     public Integer getIndex() {
@@ -29,11 +29,11 @@ public class Item {
         return weight;
     }
 
-    public BigDecimal getCost() {
-        return cost;
+    public BigDecimal getValue() {
+        return value;
     }
 
-    public BigDecimal getCostPerWeight() {
-        return costPerWeight;
+    public BigDecimal getValuePerWeight() {
+        return valuePerWeight;
     }
 }
