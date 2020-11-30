@@ -1,14 +1,13 @@
 package com.mobiquity.packer;
 
 import com.mobiquity.exception.APIException;
-import com.mobiquity.packer.knapsack.BackTrackingKnapsackSolver;
+import com.mobiquity.packer.knapsack.LcBranchAndBoundKnapsackSolver;
 import com.mobiquity.packer.model.KnapsackSolution;
 import com.mobiquity.packer.repository.KnapsackProblemFileRepository;
 import com.mobiquity.packer.repository.KnapsackProblemRepository;
 import com.mobiquity.packer.repository.LineParser;
 import com.mobiquity.packer.repository.RegexLineParser;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,7 +27,7 @@ public class Packer {
         LineParser parser = new RegexLineParser();
         KnapsackProblemRepository repository = new KnapsackProblemFileRepository(filePath, parser);
         // Config packer logic
-        PackerLogic packerLogic = new DefaultPackerLogic(repository, new BackTrackingKnapsackSolver(), PackerConstraints.getDefaults());
+        PackerLogic packerLogic = new DefaultPackerLogic(repository, new LcBranchAndBoundKnapsackSolver(), PackerConstraints.getDefaults());
 
         // Run packer logic to solve all problems
         List<KnapsackSolution> solutions = packerLogic.solveAll();

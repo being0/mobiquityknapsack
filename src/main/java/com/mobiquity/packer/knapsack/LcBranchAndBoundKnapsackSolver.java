@@ -7,7 +7,7 @@ import com.mobiquity.packer.model.KnapsackSolution;
  * @author <a href="mailto:raliakbari@gmail.com">Reza Aliakbari</a>
  * @version 1, 11/29/2020
  */
-public class BackTrackingKnapsackSolver implements KnapsackSolver {
+public class LcBranchAndBoundKnapsackSolver implements KnapsackSolver {
 
     @Override
     public KnapsackSolution solve(KnapsackProblem knapsackProblem) {
