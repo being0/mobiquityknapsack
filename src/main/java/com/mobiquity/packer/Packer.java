@@ -23,11 +23,7 @@ public class Packer {
     public static String pack(String filePath) throws APIException {
 
         // Here For simplicity I do the role of an IOC framework(like Spring) and construct and inject dependencies
-        // Config repository
-        LineParser parser = new RegexLineParser();
-        KnapsackProblemRepository repository = new KnapsackProblemFileRepository(filePath, parser);
-        // Config packer logic
-        PackerLogic packerLogic = new DefaultPackerLogic(repository, new LcBranchAndBoundKnapsackSolver(), PackerConstraints.getDefaults());
+        PackerLogic packerLogic = createPackerLogic(filePath);
 
         // Run packer logic to solve all problems
         List<KnapsackSolution> solutions = packerLogic.solveAll();
@@ -35,14 +31,26 @@ public class Packer {
         return convertSolutionToString(solutions);
     }
 
+    private static PackerLogic createPackerLogic(String filePath) {
+        // Config repository
+        LineParser parser = new RegexLineParser();
+        KnapsackProblemRepository repository = new KnapsackProblemFileRepository(filePath, parser);
+        // Config packer logic
+        return new DefaultPackerLogic(repository, new LcBranchAndBoundKnapsackSolver(), PackerConstraints.getDefaults());
+    }
+
     private static String convertSolutionToString(List<KnapsackSolution> solutions) {
 
         StringBuilder strBuilder = new StringBuilder();
-        for (KnapsackSolution solution : solutions) {
+        for (int i = 0; i < solutions.size(); i++) {
+            KnapsackSolution solution = solutions.get(i);
+
             strBuilder.append(solution.getItems().size() == 0 ? "-" :
-                    solution.getItems().stream().map(i -> String.valueOf(i.getIndex()))
+                    solution.getItems().stream().map(it -> String.valueOf(it.getIndex()))
                             .collect(Collectors.joining(",")));
-            strBuilder.append("\n");
+
+            if (i != solutions.size() - 1)
+                strBuilder.append("\n");
         }
 
         return strBuilder.toString();

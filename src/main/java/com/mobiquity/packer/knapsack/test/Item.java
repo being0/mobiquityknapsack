@@ -1,4 +1,4 @@
-package com.mobiquity.packer.knapsack;// Java Program to implement
+package com.mobiquity.packer.knapsack.test;// Java Program to implement
 // 0/1 knapsack using LC 
 // Branch and Bound 
 
@@ -40,7 +40,7 @@ class Item {
 
 class Node {
     // Upper Bound: Best case
-    // (Fractional Knapsck)
+    // (Fractional Knapsack)
     BigDecimal ub;
 
     // Lower Bound: Worst case
@@ -76,10 +76,6 @@ class Node {
         this.selected = cpy.selected;
     }
 
-    @Override
-    public String toString() {
-        return ub.toString();
-    }
 }
 
 // Comparator to sort based on lower bound 
@@ -104,7 +100,7 @@ class knapsack {
     // Function to calculate upper bound
     // (includes fractional part of the items)
     static BigDecimal upperBound(BigDecimal tv, BigDecimal tw,
-                                 int idx, Item arr[]) {
+                                 int idx, Item[] arr) {
         BigDecimal value = tv;
         BigDecimal weight = tw;
         for (int i = idx; i < size; i++) {
@@ -125,7 +121,7 @@ class knapsack {
     // Calculate lower bound (doesn't
     // include fractional part of items)
     static BigDecimal lowerBound(BigDecimal tv, BigDecimal tw,
-                                 int idx, Item arr[]) {
+                                 int idx, Item[] arr) {
         BigDecimal value = tv;
         BigDecimal weight = tw;
         for (int i = idx; i < size; i++) {
@@ -149,7 +145,7 @@ class knapsack {
         a.tw = tw;
     }
 
-    public static void solve(Item arr[]) {
+    public static void solve(Item[] arr) {
         // Sort the items based on the
         // profit/weight ratio
         Arrays.sort(arr, new sortByRatio());
