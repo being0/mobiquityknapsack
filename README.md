@@ -28,5 +28,39 @@ to improve maintainability and Readability of the code, best practices, SOLID pr
 
 * Packer
 
-        Packer is the starting class. it configs and injects dependencies. It would be an enhancement to use IOC framework like Spring to do the configurations and setup there.
+    Packer is the starting class. it configs and injects dependencies. 
+    
+    If this project wants to be used as a library then it is recommended to use the **PackerLogic** as start point and config it by an IOC framework like Spring. 
   
+* PackerLogic
+
+    PackerLogic provide abstraction for packer logic implementations. 
+    DefaultPackerLogic implementation is responsible to read problems from Repository and solve them using KnapsackSolver 
+
+* KnapsackSolver
+
+* KnapsackRepository
+
+    KnapsackRepository provide abstraction for repository implementations.
+    
+    KnapsackProblemFileRepository provides access to file problem repository. executeOnAllEntries can work on files with large number of lines.
+
+* ProblemParser
+    
+    ProblemParser provides abstraction for problem parsers.
+    
+    RegexProblemParser uses Regex and uses caching group feature to parse and extract a problem.
+    
+## Build 
+
+Gradle is on charge for this project.
+To build this project on the root of the project run this command:
+
+    $ ./gradlew run
+    
+## Wish List
+* Volume test
+
+This project is designed to work on files with heavy lines. 
+However if the number of entries on each problem could be huge as well, 
+we need to address this on ProblemParser(It is now handled in PackerLogic)
