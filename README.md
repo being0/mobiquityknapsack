@@ -15,7 +15,7 @@
 
 ## Introduction
 
-The challenge is a 0-1 knapsack problem that has been explained [here](https://en.wikipedia.org/wiki/Knapsack_problem)
+The challenge is a 0/1 knapsack problem that has been explained [here](https://en.wikipedia.org/wiki/Knapsack_problem)
 
 There are various approaches to solve this problem like Brute Force, Dynamic Programming,... Because weights are not Integer in this problem we can't use Dynamic Programming. To solve this problem a **Least Cost Branch and Bound** algorithm has been used.
 
