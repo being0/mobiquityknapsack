@@ -5,8 +5,8 @@ import com.mobiquity.packer.knapsack.LcBAndBKnapsackSolver;
 import com.mobiquity.packer.model.KnapsackSolution;
 import com.mobiquity.packer.repository.KnapsackProblemFileRepository;
 import com.mobiquity.packer.repository.KnapsackProblemRepository;
-import com.mobiquity.packer.repository.LineParser;
-import com.mobiquity.packer.repository.RegexLineParser;
+import com.mobiquity.packer.repository.ProblemParser;
+import com.mobiquity.packer.repository.RegexProblemParser;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,7 +33,7 @@ public class Packer {
 
     private static PackerLogic createPackerLogic(String filePath) {
         // Config repository
-        LineParser parser = new RegexLineParser();
+        ProblemParser parser = new RegexProblemParser();
         KnapsackProblemRepository repository = new KnapsackProblemFileRepository(filePath, parser);
         // Config packer logic
         return new DefaultPackerLogic(repository, new LcBAndBKnapsackSolver(), PackerConstraints.getDefaults());

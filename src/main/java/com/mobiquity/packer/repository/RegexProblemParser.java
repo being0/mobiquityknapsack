@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
  * @author <a href="mailto:raliakbari@gmail.com">Reza Aliakbari</a>
  * @version 1, 11/29/2020
  */
-public class RegexLineParser implements LineParser {
+public class RegexProblemParser implements ProblemParser {
     private static final String decimalNo = "\\s*((?:\\d*\\.)?\\d+)\\s*";
     private static final String repeatingPattern = "\\s*\\(\\s*(\\d+)\\s*,(" + decimalNo + "),\\s*€(" + decimalNo + ")\\)";
 

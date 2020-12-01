@@ -3,9 +3,9 @@ package com.mobiquity.packer.repository
 import com.mobiquity.packer.model.KnapsackProblem
 import spock.lang.Specification
 
-class RegexLineParserSpec extends Specification {
+class RegexProblemParserSpec extends Specification {
 
-    RegexLineParser regexLineParser = new RegexLineParser();
+    RegexProblemParser regexLineParser = new RegexProblemParser();
 
     def "ParseException with invalid inputs"() {
         when:

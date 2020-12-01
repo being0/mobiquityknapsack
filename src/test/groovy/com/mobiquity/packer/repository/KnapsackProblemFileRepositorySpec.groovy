@@ -6,10 +6,10 @@ import spock.lang.Specification
 class KnapsackProblemFileRepositorySpec extends Specification {
 
     KnapsackProblemFileRepository repository
-    LineParser lineParser
+    ProblemParser lineParser
 
     def setup() {
-        lineParser = Stub(LineParser)
+        lineParser = Stub(ProblemParser)
     }
 
 

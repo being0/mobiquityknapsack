@@ -31,14 +31,14 @@ import java.util.stream.Stream;
 public class KnapsackProblemFileRepository implements KnapsackProblemRepository {
 
     private final String filePath;
-    private final LineParser lineParser;
+    private final ProblemParser problemParser;
 
-    public KnapsackProblemFileRepository(String filePath, LineParser lineParser) {
+    public KnapsackProblemFileRepository(String filePath, ProblemParser problemParser) {
         if (filePath == null || filePath.isEmpty())
             throw new IllegalArgumentException("filePath can not be null or empty!");
 
         this.filePath = filePath;
-        this.lineParser = lineParser;
+        this.problemParser = problemParser;
     }
 
     /**
@@ -53,7 +53,7 @@ public class KnapsackProblemFileRepository implements KnapsackProblemRepository 
 
         try (Stream<String> stream = Files.lines(Paths.get(filePath), StandardCharsets.UTF_8)) {
 
-            stream.forEach(l -> knapsackProblems.add(lineParser.parse(l)));
+            stream.forEach(l -> knapsackProblems.add(problemParser.parse(l)));
 
         } catch (IOException ioe) {
             throw new RepositoryException("Can't read from the file! Make sure file exists. File path is " + filePath, ioe);
@@ -73,7 +73,7 @@ public class KnapsackProblemFileRepository implements KnapsackProblemRepository 
         try (LineIterator it = FileUtils.lineIterator(Paths.get(filePath).toFile(), "UTF-8")) {
 
             while (it.hasNext()) {
-                consumer.accept(lineParser.parse(it.nextLine()));
+                consumer.accept(problemParser.parse(it.nextLine()));
             }
 
         } catch (IOException ioe) {
