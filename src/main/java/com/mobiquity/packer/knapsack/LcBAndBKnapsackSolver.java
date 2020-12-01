@@ -9,7 +9,7 @@ import java.math.RoundingMode;
 import java.util.*;
 
 /**
- * Solve knapsack using Least Cost Branch and Bound algorithm.
+ * Solve 0/1 knapsack with real numbers on weight and value by using Least Cost Branch and Bound algorithm.
  *
  * @author <a href="mailto:raliakbari@gmail.com">Reza Aliakbari</a>
  * @version 1, 11/29/2020

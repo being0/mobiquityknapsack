@@ -20,6 +20,14 @@ public class Packer {
     private Packer() {
     }
 
+    /**
+     * Solves problem from file and generate output(Refer to the specification for the formats)
+     * Do not use this class for API use, instead config and use PackerLogic.
+     *
+     * @param filePath path of file
+     * @return output
+     * @throws APIException ApiException in case known business exception happens
+     */
     public static String pack(String filePath) throws APIException {
 
         // Here For simplicity I do the role of an IOC framework(like Spring) and construct and inject dependencies
