@@ -3,6 +3,8 @@ package com.mobiquity.packer;
 import com.mobiquity.exception.APIException;
 
 /**
+ * Raise if a business constraint is violated
+ *
  * @author <a href="mailto:raliakbari@gmail.com">Reza Aliakbari</a>
  * @version 1, 11/29/2020
  */

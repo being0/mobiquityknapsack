@@ -10,6 +10,14 @@ import java.util.*;
 
 /**
  * Solve 0/1 knapsack with real numbers on weight and value by using Least Cost Branch and Bound algorithm.
+ * LcBAndBKnapsackSolver uses **Least Cost Branch And Bound** algorithm to solve this problem in most efficient approach(However this problem is polynomial and may end to exponential time complexity).
+ * Instead of normal brute force approach that checks all possible solutions, **Branch and Bound** Algorithm tries
+ * to eliminate candidates that their **Upper Bound** is not better than the current best solution(So in this case the subtree is not continued).
+ * Here in Knapsack to calculate Upper Bound we sort items by ratio of value/weight and we take fraction of last item(fraction is not used in solution but it is used for upper bound).
+ * Also We can traverse the tree using FIFO and LIFO data structures. Here to optimize more we use **PriorityQueue**,
+ * using PriorityQueue allows us to apply **Least Cost** strategy. The priority queue let us to peek the node with the lowest bound at the first(**Lower Bound** is the value of actual solution at the node)
+
+ * Since 0/1 Knapsack is about maximizing the total value, we cannot directly use the LC Branch and Bound technique to solve this. Instead, we convert this into a minimization problem by taking negative of the given values.
  *
  * @author <a href="mailto:raliakbari@gmail.com">Reza Aliakbari</a>
  * @version 1, 11/29/2020

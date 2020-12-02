@@ -1,6 +1,8 @@
 package com.mobiquity.packer.repository;
 
 /**
+ * Raise parse exception when exception in parsing occurs
+ *
  * @author <a href="mailto:raliakbari@gmail.com">Reza Aliakbari</a>
  * @version 1, 11/29/2020
  */

@@ -12,6 +12,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
+ * Packer starting class that tries to solve packer problems using file of packer problems
+ *
+ * Use PackerLogic in your API as starting class
+ *
  * @author <a href="mailto:raliakbari@gmail.com">Reza Aliakbari</a>
  * @version 1, 11/29/2020
  */

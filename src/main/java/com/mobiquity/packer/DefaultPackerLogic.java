@@ -10,6 +10,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Loads problem from repository and then checks business constraint if constraint checks pass,
+ * it solves the problems using KnapsackSolver.
+ * <p>
+ * The constraints that should be checked are:
+ * 1. Max weight that a package can take
+ * 2. Maximum number of items in the problem
+ * 3. Max weight and cost of an item
+ *
  * @author <a href="mailto:raliakbari@gmail.com">Reza Aliakbari</a>
  * @version 1, 11/29/2020
  */

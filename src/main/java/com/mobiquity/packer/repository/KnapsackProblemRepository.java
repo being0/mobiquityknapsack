@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.function.Consumer;
 
 /**
+ * Provides access to knapsack problem repository.
+ * For large files use executeOnAllEntries.
+ *
  * @author <a href="mailto:raliakbari@gmail.com">Reza Aliakbari</a>
  * @version 1, 11/29/2020
  */

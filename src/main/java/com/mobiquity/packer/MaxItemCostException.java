@@ -1,6 +1,8 @@
 package com.mobiquity.packer;
 
 /**
+ * Raise in case max item cost is violated
+ *
  * @author <a href="mailto:raliakbari@gmail.com">Reza Aliakbari</a>
  * @version 1, 11/30/2020
  */

@@ -3,6 +3,8 @@ package com.mobiquity.packer;
 import java.math.BigDecimal;
 
 /**
+ * Represents packer business constraints
+ *
  * @author <a href="mailto:raliakbari@gmail.com">Reza Aliakbari</a>
  * @version 1, 11/29/2020
  */

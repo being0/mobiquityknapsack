@@ -3,6 +3,8 @@ package com.mobiquity.packer.repository;
 import com.mobiquity.exception.APIException;
 
 /**
+ * Raise repository exception when exceptions in repository occurs
+ *
  * @author <a href="mailto:raliakbari@gmail.com">Reza Aliakbari</a>
  * @version 1, 11/29/2020
  */
