@@ -76,10 +76,17 @@ To build this project on the root of the project run this command:
 
 * Publisher/Subscriber And Reactive Programming
 
-     Repository is a stream of problems. 
+     **Repository is a stream of problems.**
+     
      We can implement Repository as a publisher of problems and then PackerLogic as a subscriber of repository problems and publisher of solutions. 
-     This has two benefits, it works better on heavy files and also 
-     subscriber doesn't need to wait for all results(it is memory efficient, subscriber can stop between and in case an exception occurs, it has consumed partially instead of missing previous results).
+     This approach has several benefits:
+     
+     1- It works better on heavy files
+     
+     2- Subscriber doesn't need to wait for all results(it is memory efficient, subscriber can stop between and in case an exception occurs, it has consumed partially instead of missing previous results).
+     
+     3- Allows Multiple subscribers to register(logger, DB store,...)
+     
      This approach is called **Reactive Programming** and we can use [RxJava](https://github.com/ReactiveX/RxJava) or [Spring Reactor](https://projectreactor.io) libraries.
      
 * Volume test
