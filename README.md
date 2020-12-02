@@ -10,6 +10,8 @@
     
 - [Build](#build)
 - [WishList](#wishlist)
+    * Volume test
+    * Publisher/Subscriber
 
 
 
@@ -76,3 +78,8 @@ To build this project on the root of the project run this command:
     This project is designed to work on files with large number of lines. 
     However if the number of entries on each line/problem could be huge as well, 
     we need to address this on ProblemParser(It is now handled in PackerLogic)
+
+* Publisher/Subscriber
+     We can implement PackerLogic as a publisher. This has two benefits, it works better on heavy files and also 
+     subscriber doesn't need to wait for all results(it can stop between or decides in case exception occurs).
+     So I wish to extend this logic to be a publisher and Packer as subscriber.
