@@ -81,11 +81,13 @@ To build this project on the root of the project run this command:
      We can implement Repository as a publisher of problems and then PackerLogic as a subscriber of repository problems and publisher of solutions. 
      This approach has several benefits:
      
-     1- It works better on large files
+     1- It is memory efficient and works better on large files
      
-     2- Subscriber doesn't need to wait for all results(it is memory efficient, subscriber can stop between and in case an exception occurs, it has consumed partially instead of missing previous results).
+     2- Subscriber doesn't need to wait for all results(subscriber can stop between and in case an exception occurs, it has consumed partially instead of missing previous results).
      
      3- Allows Multiple subscribers to register(logger, DB store,...)
+     
+     4- It is [non-blocking](https://www.reactivemanifesto.org/glossary#Non-Blocking)
      
      This approach is called **Reactive Programming** and we can use [RxJava](https://github.com/ReactiveX/RxJava) or [Spring Reactor](https://projectreactor.io) libraries.
      
