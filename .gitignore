@@ -1,5 +1,4 @@
 target/
-!.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
 .apt_generated
@@ -48,5 +47,7 @@ __MACOSX/
 atlassian-ide-plugin.xml
 nbactions.xml
 .gradle/
-gradle/
 /build
+!.mvn/wrapper/maven-wrapper.jar
+!gradle/wrapper/gradle-wrapper.jar
+!gradlew.bat
