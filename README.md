@@ -70,7 +70,7 @@ to improve maintainability and Readability of the code, best practices, SOLID pr
 Gradle is on charge for this project.
 To build this project on the root of the project run this command:
 
-    $ ./gradlew run
+    $ ./gradlew build
     
 ## WishList
 
